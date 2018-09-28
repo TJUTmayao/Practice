@@ -1,0 +1,96 @@
+package cn.xsl.sso.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import pojo.Result;
+import utils.JsonUtils;
+import utils.TokenUtils;
+import xsl.sso.service.LoginService;
+
+import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * 说明：
+ *
+ * @Auther: 11432_000
+ * @Date: 2018/9/22 09:12
+ * @Description:
+ */
+@Controller
+public class LoginController {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
+
+    @Resource
+    private LoginService loginService;
+    /**存储token的key*/
+    @Value("${COOKIE_ID}")
+    private String COOKIE_ID;
+    @Value("${PASSWORD_PREFIX}")
+    private String PASSWORD_PREFIX;
+    @Value("${PASSWORD_SUFFIX}")
+    private String PASSWORD_SUFFIX;
+    /**成功状态码*/
+    private static final int SUCCESS = 100;
+
+
+    @RequestMapping("/index")
+    public String index(HttpServletRequest request){
+        /**
+         *
+         * 功能描述: 跳转登录界面
+         *
+         * @param: [request]
+         * @return: java.lang.String
+         * @auther: 11432_000
+         * @date: 2018/9/22 10:21
+         */
+        request.setAttribute("returnUrl",request.getParameter("returnUrl"));
+        return "index";
+    }
+
+    @RequestMapping("/manager/login")
+    @ResponseBody
+    public String managerLogin(HttpServletRequest request, HttpServletResponse response){
+        /**
+         *
+         * 功能描述: 登录验证，若登录成功，跳转至登录前想要访问的页面，返回tokenKey。
+         *
+         * @param: [request, response]
+         * @return: java.lang.String
+         * @auther: 11432_000
+         * @date: 2018/9/22 13:26
+         */
+        Map map = new HashMap<String, Integer>();
+        String username = request.getParameter("username");
+        String passwd = request.getParameter("passwd");
+        String returnUrl = request.getParameter("returnUrl");
+        passwd = passwd.replace(PASSWORD_PREFIX,"");
+        passwd = passwd.replaceAll(PASSWORD_SUFFIX,"");
+        Result loginResult = loginService.getLoginResult(username, passwd);
+        try {
+            if (loginResult.getStatus() == SUCCESS){
+                Cookie cookie = new Cookie(COOKIE_ID,loginResult.getData().toString());
+                response.addCookie(cookie);
+                map.put("statu",100);
+                String tokenKey = TokenUtils.checkSuccess(loginResult.getData().toString());
+                map.put("returnUrl",returnUrl + "?tokenKey=" + tokenKey);
+                return JsonUtils.objectToJson(map);
+            }
+        }catch (Exception e){
+            LOGGER.error("登录验证失败");
+        }
+        map.put("statu",loginResult.getStatus());
+        return JsonUtils.objectToJson(map);
+    }
+
+}

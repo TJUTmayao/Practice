@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>xsl-houtai-sso</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!--******************************** CAS过滤器 *******************************************-->
+	<!-- 该过滤器用于实现单点登出功能，单点退出配置，一定要放在其他filter之前 可选 -->
+	<!--<filter>-->
+		<!--<filter-name>CAS Single Sign Out Filter</filter-name>-->
+		<!--<filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>-->
+		<!--<init-param>-->
+			<!--<param-name>casServerUrlPrefix</param-name>-->
+			<!--<param-value>http://casserver:9000/cas/</param-value>-->
+		<!--</init-param>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>CAS Single Sign Out Filter</filter-name>-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
+
+	<!--&lt;!&ndash; 该过滤器负责用户的认证工作，必须 &ndash;&gt;-->
+	<!--<filter>-->
+		<!--<filter-name>CASFilter</filter-name>-->
+		<!--<filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class>-->
+		<!--<init-param>-->
+			<!--&lt;!&ndash;casServerLoginUrl:cas服务的登陆url &ndash;&gt;-->
+			<!--<param-name>casServerLoginUrl</param-name>-->
+			<!--<param-value>xxxxxxxxxxxxxxxxxxxxx</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--&lt;!&ndash;serverName:本项目的ip+port &ndash;&gt;-->
+			<!--<param-name>serverName</param-name>-->
+			<!--<param-value>xxxxxxxxxxxxxxxxxx</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--<param-name>useSession</param-name>-->
+			<!--<param-value>true</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--<param-name>redirectAfterValidation</param-name>-->
+			<!--<param-value>true</param-value>-->
+		<!--</init-param>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>CASFilter-->
+		<!--</filter-name>-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
+
+
+	<!--&lt;!&ndash; 该过滤器负责对Ticket的校验工作，必须&ndash;&gt;-->
+	<!--<filter>-->
+		<!--<filter-name>CAS Validation Filter</filter-name>-->
+		<!--<filter-class>-->
+			<!--org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter-->
+		<!--</filter-class>-->
+		<!--<init-param>-->
+			<!--<param-name>casServerUrlPrefix</param-name>-->
+			<!--<param-value>http://casserver:9000/cas/</param-value>-->
+		<!--</init-param>-->
+		<!--<init-param>-->
+			<!--<param-name>serverName</param-name>-->
+			<!--<param-value>http://localhost:9000</param-value>-->
+		<!--</init-param>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>CAS Validation Filter</filter-name>-->
+		<!--&lt;!&ndash; 对项目中的哪些路径做登录拦截&ndash;&gt;-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
+
+	<!--&lt;!&ndash; 该过滤器对HttpServletRequest请求包装， 可通过HttpServletRequest的getRemoteUser()方法获得登录用户的登录名，可选 &ndash;&gt;-->
+	<!--<filter>-->
+		<!--<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>-->
+		<!--<filter-class>-->
+			<!--org.jasig.cas.client.util.HttpServletRequestWrapperFilter-->
+		<!--</filter-class>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>CAS HttpServletRequest Wrapper Filter</filter-name>-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
+
+	<!--&lt;!&ndash; 该过滤器使得可以通过org.jasig.cas.client.util.AssertionHolder来获取用户的登录名。-->
+         <!--比如AssertionHolder.getAssertion().getPrincipal().getName()。-->
+         <!--这个类把Assertion信息放在ThreadLocal变量中，这样应用程序不在web层也能够获取到当前登录信息 &ndash;&gt;-->
+	<!--<filter>-->
+		<!--<filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+		<!--<filter-class>org.jasig.cas.client.util.AssertionThreadLocalFilter</filter-class>-->
+	<!--</filter>-->
+	<!--<filter-mapping>-->
+		<!--<filter-name>CAS Assertion Thread Local Filter</filter-name>-->
+		<!--<url-pattern>/*</url-pattern>-->
+	<!--</filter-mapping>-->
+	<!-- ******************************* CAS过滤器结束 *****************************-->
+
+	<!-- 解决post乱码 -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+
+	<!-- springmvc的前端控制器 -->
+	<servlet>
+		<servlet-name>xsl-houtai-sso</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring/*.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xsl-houtai-sso</servlet-name>
+		<!-- 伪静态化（.html文件）（实际为动态）为了更好的响应搜索引擎 -->
+		<!-- 还有.action和.do -->
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+</web-app>
