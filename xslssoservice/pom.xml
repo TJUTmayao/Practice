@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.tjut.xsl</groupId>
+    <artifactId>xsl-sso-service</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <artifactId>xsl-parent</artifactId>
+        <groupId>cn.tjut.xsl</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modules>
+        <module>../xsl-sso-service-interface</module>
+        <module>../xsl-sso-service-service</module>
+        <module>../xsl-sso-service-pojo</module>
+        <module>../xsl-sso-service-dao</module>
+    </modules>
+
+
+    <!-- 配置tomcat插件 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <path>/</path>
+                    <port>8083</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
