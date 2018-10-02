@@ -73,7 +73,7 @@ public class LoginServiceImpl implements LoginService {
         //设置失效时间
         jedisClient.expire(XSL_MANAGER_INFO_KEY + key ,LOGIN_EXPIRE_TIME);
         LOGGER.error("管理员：" + username + "登录成功");
-        return ResultUtils.setResult(100,"登录成功",key);
+        return ResultUtils.setResult(100,"登录成功", key);
     }
 
     private XslManager getManagerInfo(String username, String password){

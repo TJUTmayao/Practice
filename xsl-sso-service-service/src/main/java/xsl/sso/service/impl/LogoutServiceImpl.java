@@ -30,8 +30,9 @@ public class LogoutServiceImpl implements LogoutService {
     private String XSL_MANAGER_INFO_KEY;
 
     @Override
-    public Result logoutByToken(String token) {
-        Long del = jedisClient.del(XSL_MANAGER_INFO_KEY + token);
+    public Result logoutByToken(String managerInfoKey) {
+
+        Long del = jedisClient.del(XSL_MANAGER_INFO_KEY + managerInfoKey);
         if (del == 0){
             return ResultUtils.setResult(100,"登录已失效");
         }

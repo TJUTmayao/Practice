@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.Result;
+import utils.CookieUtils;
 import utils.JsonUtils;
 import utils.TokenUtils;
 import xsl.sso.service.LoginService;
+import xsl.sso.service.LogoutService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
@@ -32,6 +34,10 @@ public class LoginController {
 
     @Resource
     private LoginService loginService;
+    @Resource
+    private LogoutService logoutService;
+    @Resource
+    private TokenUtils tokenUtils;
     /**存储token的key*/
     @Value("${COOKIE_ID}")
     private String COOKIE_ID;
@@ -77,20 +83,41 @@ public class LoginController {
         passwd = passwd.replace(PASSWORD_PREFIX,"");
         passwd = passwd.replaceAll(PASSWORD_SUFFIX,"");
         Result loginResult = loginService.getLoginResult(username, passwd);
-        try {
-            if (loginResult.getStatus() == SUCCESS){
-                Cookie cookie = new Cookie(COOKIE_ID,loginResult.getData().toString());
-                response.addCookie(cookie);
-                map.put("statu",100);
-                String tokenKey = TokenUtils.checkSuccess(loginResult.getData().toString());
-                map.put("returnUrl",returnUrl + "?tokenKey=" + tokenKey);
-                return JsonUtils.objectToJson(map);
-            }
-        }catch (Exception e){
-            LOGGER.error("登录验证失败");
+        if (loginResult.getStatus() == SUCCESS){
+            logout(request,response);
+            CookieUtils.setCookie(response , loginResult.getData().toString());
+            String tokenKey = tokenUtils.checkOrLoginSuccess(loginResult.getData().toString());
+            map.put("statu",100);
+            map.put("returnUrl",returnUrl + "sso/return?tokenKey=" + tokenKey);
+            return JsonUtils.objectToJson(map);
         }
         map.put("statu",loginResult.getStatus());
         return JsonUtils.objectToJson(map);
+    }
+
+    public String logout(HttpServletRequest request , HttpServletResponse response){
+        /**
+         *
+         * 功能描述: 登出功能
+         *
+         * @param: [request, response]
+         * @return: java.lang.String
+         * @auther: 11432_000
+         * @date: 2018/10/2 10:45
+         */
+        Result result = new Result();
+        result.setStatus(100);
+        result.setInfo("登出成功");
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null && cookies.length > 0){
+            for (Cookie cookie : cookies) {
+                if (COOKIE_ID.equals(cookie.getName())){
+                    result = logoutService.logoutByToken(cookie.getValue());
+                    CookieUtils.removeCookie(response , cookie.getName());
+                }
+            }
+        }
+        return JsonUtils.objectToJson(result);
     }
 
 }

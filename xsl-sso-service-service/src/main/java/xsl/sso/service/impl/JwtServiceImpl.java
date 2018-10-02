@@ -36,7 +36,7 @@ public class JwtServiceImpl implements JwtService {
     private JedisClient jedisClient;
 
     /** jwt 密匙，不要轻易更改*/
-    private static final String SECRET = "";
+    private static final String SECRET = "jfiskaiifdhgailbghailfgahgfkdyvd";
     /** token有效期*/
     private static final int CALENDAR_UTIL = Calendar.MINUTE;
     private static final int TERM_OF_VALIDITY = 15;
@@ -79,7 +79,7 @@ public class JwtServiceImpl implements JwtService {
             JWSSigner jwsSigner = new MACSigner(SECRET);
             //添加sign
             jwsObject.sign(jwsSigner);
-            return ResultUtils.setResult(100,jwsObject.serialize());
+            return ResultUtils.setResult(100,"成功",jwsObject.serialize());
         }catch (Exception e){
             LOGGER.error("JWT 签名生成错误");
             return ResultUtils.setResult(500,"签名生成失败");
@@ -160,7 +160,7 @@ public class JwtServiceImpl implements JwtService {
         jedisClient.set(tokenKey , token);
         //设置失效时间
         jedisClient.expire(tokenKey , TOKEN_EXPIRE_TIME);
-        return ResultUtils.setResult(100,uuid);
+        return ResultUtils.setResult(100,"成功",uuid);
     }
 
     public Date getInternetTime(){

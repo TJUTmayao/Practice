@@ -3,7 +3,9 @@ package cn.xsl.sso.controller;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.Result;
+import utils.CookieUtils;
 import utils.TokenUtils;
 import xsl.sso.service.CheckService;
 
@@ -24,6 +26,8 @@ public class CheckController {
 
     @Resource
     private CheckService checkService;
+    @Resource
+    private TokenUtils tokenUtils;
     @Value("${LOGIN_URL}")
     private String LOGIN_URL;
     /**存储token的key*/
@@ -52,13 +56,13 @@ public class CheckController {
                     Result checkResult = checkService.getCheckResult(cookie.getValue());
                     //未登录
                     if (checkResult.getStatus() != SUCCESS){
-                        Cookie removeCookie = new Cookie(COOKIE_ID,"");
-                        response.addCookie(removeCookie);
+                        CookieUtils.removeCookie(response ,COOKIE_ID);
                         return "redirect:"+ LOGIN_URL + "?returnUrl=" + returnUrl;
                     }
                     //已登录
                     if (checkResult.getStatus() == SUCCESS){
-                        String tokenKey = TokenUtils.checkSuccess(cookie.getValue());
+                        /* 获取登录信息key */
+                        String tokenKey = tokenUtils.checkOrLoginSuccess(cookie.getValue());
                         return "redirect:" + returnUrl + "?tokenKey=" + tokenKey;
                     }
                     break;
@@ -67,6 +71,5 @@ public class CheckController {
         }
         return "redirect:"+ LOGIN_URL + "?returnUrl=" + returnUrl;
     }
-
 
 }
