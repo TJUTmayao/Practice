@@ -41,10 +41,7 @@ public class LoginController {
     /**存储token的key*/
     @Value("${COOKIE_ID}")
     private String COOKIE_ID;
-    @Value("${PASSWORD_PREFIX}")
-    private String PASSWORD_PREFIX;
-    @Value("${PASSWORD_SUFFIX}")
-    private String PASSWORD_SUFFIX;
+
     /**成功状态码*/
     private static final int SUCCESS = 100;
 
@@ -80,22 +77,23 @@ public class LoginController {
         String username = request.getParameter("username");
         String passwd = request.getParameter("passwd");
         String returnUrl = request.getParameter("returnUrl");
-        passwd = passwd.replace(PASSWORD_PREFIX,"");
-        passwd = passwd.replaceAll(PASSWORD_SUFFIX,"");
         Result loginResult = loginService.getLoginResult(username, passwd);
         if (loginResult.getStatus() == SUCCESS){
-            logout(request,response);
-            CookieUtils.setCookie(response , loginResult.getData().toString());
+            Map json = JsonUtils.jsonToPojo(loginResult.getData().toString(), Map.class);
+            String cookieId = COOKIE_ID + json.get("id").toString();
+            logout(request , response, cookieId);
             String tokenKey = tokenUtils.checkOrLoginSuccess(loginResult.getData().toString());
             map.put("statu",100);
-            map.put("returnUrl",returnUrl + "sso/return?tokenKey=" + tokenKey);
+            map.put("returnUrl",returnUrl + "?tokenKey=" + tokenKey);
+            CookieUtils.setCookie(response ,cookieId ,loginResult.getData().toString());
+            System.out.println("cg");
             return JsonUtils.objectToJson(map);
         }
         map.put("statu",loginResult.getStatus());
         return JsonUtils.objectToJson(map);
     }
 
-    public String logout(HttpServletRequest request , HttpServletResponse response){
+    public String logout(HttpServletRequest request , HttpServletResponse response ,String cookieId){
         /**
          *
          * 功能描述: 登出功能
@@ -111,7 +109,7 @@ public class LoginController {
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length > 0){
             for (Cookie cookie : cookies) {
-                if (COOKIE_ID.equals(cookie.getName())){
+                if (cookieId.equals(cookie.getName())){
                     result = logoutService.logoutByToken(cookie.getValue());
                     CookieUtils.removeCookie(response , cookie.getName());
                 }

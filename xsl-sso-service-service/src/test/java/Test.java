@@ -4,6 +4,7 @@ import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.DigestUtils;
 import pojo.JWTpojo;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
@@ -131,6 +132,12 @@ public class Test {
         jc.set("name","123456");
         String string = jc.get("name");
         System.out.println(string);
+    }
+
+    @org.junit.Test
+    public void md5(){
+        String md5DigestAsHex = DigestUtils.md5DigestAsHex("123456789".getBytes());
+        System.out.println(md5DigestAsHex);
     }
 
 }

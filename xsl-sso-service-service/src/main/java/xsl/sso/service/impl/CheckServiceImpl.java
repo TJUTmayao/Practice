@@ -59,7 +59,8 @@ public class CheckServiceImpl implements CheckService {
         }
         //更新失效时间
         jedisClient.expire(XSL_MANAGER_INFO_KEY + key ,LOGIN_EXPIRE_TIME);
-        return ResultUtils.setResult(100,"已登录",xslManager);
+        Integer id = xslManager.getId();
+        return ResultUtils.setResult(100,"已登录",id);
     }
 
     private int checkManagerStatus(String username){

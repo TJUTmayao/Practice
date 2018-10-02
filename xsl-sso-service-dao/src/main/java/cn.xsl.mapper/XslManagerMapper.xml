@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.xsl.mapper.XslManagerMapper" >
   <resultMap id="BaseResultMap" type="cn.xsl.pojo.XslManager" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="manager_name" property="managerName" jdbcType="VARCHAR" />
     <result column="manager_password" property="managerPassword" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
@@ -85,15 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from xsl_manager
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from xsl_manager
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="cn.xsl.pojo.XslManagerExample" >
     delete from xsl_manager
@@ -105,7 +105,7 @@
     insert into xsl_manager (id, manager_name, manager_password, 
       status, creat_time, remove_time, 
       last_login_date)
-    values (#{id,jdbcType=VARCHAR}, #{managerName,jdbcType=VARCHAR}, #{managerPassword,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{managerName,jdbcType=VARCHAR}, #{managerPassword,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{creatTime,jdbcType=DATE}, #{removeTime,jdbcType=DATE}, 
       #{lastLoginDate,jdbcType=TIMESTAMP})
   </insert>
@@ -136,7 +136,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="managerName != null" >
         #{managerName,jdbcType=VARCHAR},
@@ -168,7 +168,7 @@
     update xsl_manager
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
       <if test="record.managerName != null" >
         manager_name = #{record.managerName,jdbcType=VARCHAR},
@@ -195,7 +195,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update xsl_manager
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=INTEGER},
       manager_name = #{record.managerName,jdbcType=VARCHAR},
       manager_password = #{record.managerPassword,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
@@ -228,7 +228,7 @@
         last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.xsl.pojo.XslManager" >
     update xsl_manager
@@ -238,6 +238,6 @@
       creat_time = #{creatTime,jdbcType=DATE},
       remove_time = #{removeTime,jdbcType=DATE},
       last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

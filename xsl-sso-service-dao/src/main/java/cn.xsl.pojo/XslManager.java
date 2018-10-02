@@ -3,7 +3,7 @@ package cn.xsl.pojo;
 import java.util.Date;
 
 public class XslManager {
-    private String id;
+    private Integer id;
 
     private String managerName;
 
@@ -17,12 +17,12 @@ public class XslManager {
 
     private Date lastLoginDate;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getManagerName() {

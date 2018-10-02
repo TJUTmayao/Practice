@@ -10,7 +10,7 @@ public interface XslManagerMapper {
 
     int deleteByExample(XslManagerExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(XslManager record);
 
@@ -18,7 +18,7 @@ public interface XslManagerMapper {
 
     List<XslManager> selectByExample(XslManagerExample example);
 
-    XslManager selectByPrimaryKey(String id);
+    XslManager selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") XslManager record, @Param("example") XslManagerExample example);
 

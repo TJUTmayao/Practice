@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pojo.Result;
 import utils.CookieUtils;
+import utils.JsonUtils;
 import utils.TokenUtils;
 import xsl.sso.service.CheckService;
 
@@ -49,20 +50,26 @@ public class CheckController {
          * @date: 2018/9/22 9:57
          */
         String returnUrl = request.getParameter("returnUrl");
+        String id = request.getParameter("id");
+        String cookieId = COOKIE_ID + id;
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length > 0){
             for (Cookie cookie : cookies) {
-                if (COOKIE_ID.equals(cookie.getName())){
-                    Result checkResult = checkService.getCheckResult(cookie.getValue());
+                if (cookieId.equals(cookie.getName())){
+                    System.out.println(cookie.getValue());
+                    Result checkResult = checkService.getCheckResult(cookie.getValue().toString());
                     //未登录
+                    System.out.println(JsonUtils.objectToJson(checkResult));
                     if (checkResult.getStatus() != SUCCESS){
-                        CookieUtils.removeCookie(response ,COOKIE_ID);
+                        CookieUtils.removeCookie(response ,cookieId);
+                        System.out.println("未登录");
                         return "redirect:"+ LOGIN_URL + "?returnUrl=" + returnUrl;
                     }
                     //已登录
                     if (checkResult.getStatus() == SUCCESS){
                         /* 获取登录信息key */
                         String tokenKey = tokenUtils.checkOrLoginSuccess(cookie.getValue());
+                        System.out.println("yi登录");
                         return "redirect:" + returnUrl + "?tokenKey=" + tokenKey;
                     }
                     break;
@@ -70,6 +77,15 @@ public class CheckController {
             }
         }
         return "redirect:"+ LOGIN_URL + "?returnUrl=" + returnUrl;
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public void test(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies){
+            System.out.println(cookie.getName() + "内容"+cookie.getValue());
+        }
     }
 
 }

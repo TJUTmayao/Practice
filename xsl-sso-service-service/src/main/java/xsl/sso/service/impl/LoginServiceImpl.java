@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 import pojo.Result;
 import sso.utils.JedisClient;
 import sso.utils.JsonUtils;
@@ -14,7 +15,9 @@ import sso.utils.ResultUtils;
 import xsl.sso.service.LoginService;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -40,6 +43,10 @@ public class LoginServiceImpl implements LoginService {
     /**用户信息失效时间*/
     @Value("${LOGIN_EXPIRE_TIME}")
     private Integer LOGIN_EXPIRE_TIME;
+    @Value("${PASSWORD_PREFIX}")
+    private String PASSWORD_PREFIX;
+    @Value("${PASSWORD_SUFFIX}")
+    private String PASSWORD_SUFFIX;
 
     @Override
     public Result getLoginResult(String username, String password) {
@@ -52,6 +59,9 @@ public class LoginServiceImpl implements LoginService {
          * @auther: 11432_000
          * @date: 2018/9/21 22:24
          */
+        password = password.replace(PASSWORD_PREFIX,"");
+        password = password.replaceAll(PASSWORD_SUFFIX,"");
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
         XslManager xslManager = getManagerInfo(username, password);
         if (username == null || password == null){
             LOGGER.info("尝试登录名："+ username + ",尝试登录密码：" + password);
@@ -73,7 +83,10 @@ public class LoginServiceImpl implements LoginService {
         //设置失效时间
         jedisClient.expire(XSL_MANAGER_INFO_KEY + key ,LOGIN_EXPIRE_TIME);
         LOGGER.error("管理员：" + username + "登录成功");
-        return ResultUtils.setResult(100,"登录成功", key);
+        Map<String,Object> map = new HashMap<String, Object>();
+        map.put("managerKey",key);
+        map.put("id",xslManager.getId());
+        return ResultUtils.setResult(100,"登录成功", JsonUtils.objectToJson(map));
     }
 
     private XslManager getManagerInfo(String username, String password){

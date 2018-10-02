@@ -2272,3 +2272,343 @@ Caused by: java.net.ConnectException: Connection refused: connect
 
 [ERROR] 2018-10-02 15:16:02,134 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
 管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:32:17,287 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:34:20,576 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:37:41,730 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:39:43,087 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 15:44:13,785 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[WARN ] 2018-10-02 15:45:29,845 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 15:48:43,360 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:49:40,619 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:50:02,637 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:52:25,954 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:53:17,369 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 15:55:21,233 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 15:56:01,677 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:57:17,657 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 15:58:38,121 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 16:28:23,665 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 16:29:56,076 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 16:47:50,890 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 16:49:01,866 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 16:50:34,054 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 16:56:42,277 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[WARN ] 2018-10-02 16:57:46,971 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[WARN ] 2018-10-02 17:00:36,969 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:08:05,110 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:75)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:20:08,014 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:22:13,207 method:com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:87)
+ [DUBBO] Got unchecked and undeclared exception which called by 192.168.56.1. service: xsl.sso.service.LoginService, method: getLoginResult, exception: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool, dubbo version: 2.5.3, current host: 127.0.0.1
+redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:50)
+	at redis.clients.jedis.JedisPool.getResource(JedisPool.java:86)
+	at sso.utils.JedisClientPool.set(JedisClientPool.java:22)
+	at xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:78)
+	at com.alibaba.dubbo.common.bytecode.Wrapper1.invokeMethod(Wrapper1.java)
+	at com.alibaba.dubbo.rpc.proxy.javassist.JavassistProxyFactory$1.doInvoke(JavassistProxyFactory.java:46)
+	at com.alibaba.dubbo.rpc.proxy.AbstractProxyInvoker.invoke(AbstractProxyInvoker.java:72)
+	at com.alibaba.dubbo.rpc.protocol.InvokerWrapper.invoke(InvokerWrapper.java:53)
+	at com.alibaba.dubbo.rpc.filter.ExceptionFilter.invoke(ExceptionFilter.java:64)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.monitor.support.MonitorFilter.invoke(MonitorFilter.java:75)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.TimeoutFilter.invoke(TimeoutFilter.java:42)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.filter.TraceFilter.invoke(TraceFilter.java:78)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ContextFilter.invoke(ContextFilter.java:60)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.GenericFilter.invoke(GenericFilter.java:112)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.ClassLoaderFilter.invoke(ClassLoaderFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.filter.EchoFilter.invoke(EchoFilter.java:38)
+	at com.alibaba.dubbo.rpc.protocol.ProtocolFilterWrapper$1.invoke(ProtocolFilterWrapper.java:91)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboProtocol$1.reply(DubboProtocol.java:108)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.handleRequest(HeaderExchangeHandler.java:84)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:170)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused: connect
+	at redis.clients.jedis.Connection.connect(Connection.java:155)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:83)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1643)
+	at redis.clients.jedis.JedisFactory.makeObject(JedisFactory.java:85)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:861)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:435)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:363)
+	at redis.clients.util.Pool.getResource(Pool.java:48)
+	... 31 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at redis.clients.jedis.Connection.connect(Connection.java:149)
+	... 38 more
+
+
+[ERROR] 2018-10-02 17:23:36,302 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:24:12,088 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:24:48,323 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:28:42,546 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:29:11,970 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:30:00,076 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:30:32,126 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[ERROR] 2018-10-02 17:32:43,075 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:34:28,102 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[ERROR] 2018-10-02 17:35:30,918 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:81)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 17:35:52,550 method:com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:296)
+ [DUBBO] Fail to encode response: Response [id=3, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=pojo.Result@32182899, exception=null]], send bad_response info instead, cause: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data, dubbo version: 2.5.3, current host: 127.0.0.1
+java.lang.RuntimeException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:315)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeInstance(JavaSerializer.java:263)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeObject(JavaSerializer.java:227)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:408)
+	at com.alibaba.dubbo.common.serialize.support.hessian.Hessian2ObjectOutput.writeObject(Hessian2ObjectOutput.java:92)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.encodeResponseData(DubboCodec.java:200)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:276)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encode(ExchangeCodec.java:77)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.encode(DubboCountCodec.java:39)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyCodecAdapter$InternalEncoder.encode(NettyCodecAdapter.java:81)
+	at org.jboss.netty.handler.codec.oneone.OneToOneEncoder.handleDownstream(OneToOneEncoder.java:66)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendDownstream(DefaultChannelPipeline.java:776)
+	at org.jboss.netty.channel.SimpleChannelHandler.writeRequested(SimpleChannelHandler.java:304)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyHandler.writeRequested(NettyHandler.java:99)
+	at org.jboss.netty.channel.SimpleChannelHandler.handleDownstream(SimpleChannelHandler.java:266)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:582)
+	at org.jboss.netty.channel.Channels.write(Channels.java:611)
+	at org.jboss.netty.channel.Channels.write(Channels.java:578)
+	at org.jboss.netty.channel.AbstractChannel.write(AbstractChannel.java:251)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyChannel.send(NettyChannel.java:98)
+	at com.alibaba.dubbo.remoting.transport.AbstractPeer.send(AbstractPeer.java:51)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:171)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getDefaultSerializer(SerializerFactory.java:261)
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getSerializer(SerializerFactory.java:233)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:406)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:313)
+	... 28 more
+
+
+[WARN ] 2018-10-02 17:35:52,979 method:com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:296)
+ [DUBBO] Fail to encode response: Response [id=4, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=pojo.Result@a74169e, exception=null]], send bad_response info instead, cause: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data, dubbo version: 2.5.3, current host: 127.0.0.1
+java.lang.RuntimeException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:315)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeInstance(JavaSerializer.java:263)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeObject(JavaSerializer.java:227)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:408)
+	at com.alibaba.dubbo.common.serialize.support.hessian.Hessian2ObjectOutput.writeObject(Hessian2ObjectOutput.java:92)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.encodeResponseData(DubboCodec.java:200)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:276)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encode(ExchangeCodec.java:77)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.encode(DubboCountCodec.java:39)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyCodecAdapter$InternalEncoder.encode(NettyCodecAdapter.java:81)
+	at org.jboss.netty.handler.codec.oneone.OneToOneEncoder.handleDownstream(OneToOneEncoder.java:66)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendDownstream(DefaultChannelPipeline.java:776)
+	at org.jboss.netty.channel.SimpleChannelHandler.writeRequested(SimpleChannelHandler.java:304)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyHandler.writeRequested(NettyHandler.java:99)
+	at org.jboss.netty.channel.SimpleChannelHandler.handleDownstream(SimpleChannelHandler.java:266)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:582)
+	at org.jboss.netty.channel.Channels.write(Channels.java:611)
+	at org.jboss.netty.channel.Channels.write(Channels.java:578)
+	at org.jboss.netty.channel.AbstractChannel.write(AbstractChannel.java:251)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyChannel.send(NettyChannel.java:98)
+	at com.alibaba.dubbo.remoting.transport.AbstractPeer.send(AbstractPeer.java:51)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:171)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getDefaultSerializer(SerializerFactory.java:261)
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getSerializer(SerializerFactory.java:233)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:406)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:313)
+	... 28 more
+
+
+[WARN ] 2018-10-02 17:35:53,388 method:com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:296)
+ [DUBBO] Fail to encode response: Response [id=5, version=2.0.0, status=20, event=false, error=null, result=RpcResult [result=pojo.Result@6d443921, exception=null]], send bad_response info instead, cause: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data, dubbo version: 2.5.3, current host: 127.0.0.1
+java.lang.RuntimeException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+ Java field: private java.lang.Object pojo.Result.data
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:315)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeInstance(JavaSerializer.java:263)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer.writeObject(JavaSerializer.java:227)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:408)
+	at com.alibaba.dubbo.common.serialize.support.hessian.Hessian2ObjectOutput.writeObject(Hessian2ObjectOutput.java:92)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCodec.encodeResponseData(DubboCodec.java:200)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encodeResponse(ExchangeCodec.java:276)
+	at com.alibaba.dubbo.remoting.exchange.codec.ExchangeCodec.encode(ExchangeCodec.java:77)
+	at com.alibaba.dubbo.rpc.protocol.dubbo.DubboCountCodec.encode(DubboCountCodec.java:39)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyCodecAdapter$InternalEncoder.encode(NettyCodecAdapter.java:81)
+	at org.jboss.netty.handler.codec.oneone.OneToOneEncoder.handleDownstream(OneToOneEncoder.java:66)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendDownstream(DefaultChannelPipeline.java:776)
+	at org.jboss.netty.channel.SimpleChannelHandler.writeRequested(SimpleChannelHandler.java:304)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyHandler.writeRequested(NettyHandler.java:99)
+	at org.jboss.netty.channel.SimpleChannelHandler.handleDownstream(SimpleChannelHandler.java:266)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:591)
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendDownstream(DefaultChannelPipeline.java:582)
+	at org.jboss.netty.channel.Channels.write(Channels.java:611)
+	at org.jboss.netty.channel.Channels.write(Channels.java:578)
+	at org.jboss.netty.channel.AbstractChannel.write(AbstractChannel.java:251)
+	at com.alibaba.dubbo.remoting.transport.netty.NettyChannel.send(NettyChannel.java:98)
+	at com.alibaba.dubbo.remoting.transport.AbstractPeer.send(AbstractPeer.java:51)
+	at com.alibaba.dubbo.remoting.exchange.support.header.HeaderExchangeHandler.received(HeaderExchangeHandler.java:171)
+	at com.alibaba.dubbo.remoting.transport.DecodeHandler.received(DecodeHandler.java:52)
+	at com.alibaba.dubbo.remoting.transport.dispatcher.ChannelEventRunnable.run(ChannelEventRunnable.java:82)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalStateException: Serialized class cn.xsl.pojo.XslManager must implement java.io.Serializable
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getDefaultSerializer(SerializerFactory.java:261)
+	at com.alibaba.com.caucho.hessian.io.SerializerFactory.getSerializer(SerializerFactory.java:233)
+	at com.alibaba.com.caucho.hessian.io.Hessian2Output.writeObject(Hessian2Output.java:406)
+	at com.alibaba.com.caucho.hessian.io.JavaSerializer$FieldSerializer.serialize(JavaSerializer.java:313)
+	... 28 more
+
+
+[WARN ] 2018-10-02 17:39:57,543 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
+
+
+[WARN ] 2018-10-02 18:26:51,461 method:org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1108)
+Client session timed out, have not heard from server in 20000ms for sessionid 0x1661fd589aa0071
+
+
+[ERROR] 2018-10-02 20:33:45,068 method:xsl.sso.service.impl.LoginServiceImpl.getLoginResult(LoginServiceImpl.java:83)
+管理员：测试管理员登录成功
+
+
+[WARN ] 2018-10-02 20:35:32,879 method:com.alibaba.dubbo.remoting.transport.AbstractServer.disconnected(AbstractServer.java:197)
+ [DUBBO] All clients has discontected from /192.168.56.1:20890. You can graceful shutdown now., dubbo version: 2.5.3, current host: 127.0.0.1
