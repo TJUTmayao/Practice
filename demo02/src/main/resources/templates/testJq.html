@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery.min.js"></script>
+    <script>
+        function f() {
+            alert(window.location.protocol + "//" + window.location.host)
+            var url = window.location.protocol + "//" + window.location.host;
+            window.location.href = url + "/page/operation";
+        }
+    </script>
+</head>
+<body>
+<p class="test1"><a >dddd</a></p>
+<input class="test1" type="text" value="555" onclick="f()">
+<input class="test1" type="text" value="666" onclick="f()">
+<input class="test1" type="text" value="444" onclick="f()">
+<input class="test1" type="text" value="777" onclick="f()">
+</body>
+</html>

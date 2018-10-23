@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body>
+    <div style="margin:0 auto; width:320px; height:100px; border:1px;top: 500px">
+        <form id="form">
+            用户id<input type="text" id="userLoginId" name="userLoginId"><br>
+            用户名<input type="text" name="userAccount" id="userAccount"><br>
+            密码<input type="password" name="userPassword" id="userPassword"><br>
+            测试<input type="text" name="test" id="test"><br>
+        </form>
+        <input type="button" name="delete" id="delete" value="删除">
+        <input type="button" name="update" id="update" value="更新">
+        <input type="button" name="insert" id="insert" value="添加">
+        <input type="button" name="show" id="show" value="展示">
+        <input type="button" name="testButton" id="testButton" value="测试">
+    </div>
+</body>
+</html>

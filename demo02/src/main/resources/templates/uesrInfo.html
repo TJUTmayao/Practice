@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>用户列表</title>
+    <!--<script th:src="@{/js/jquery.min.js}"/>-->
+    <!--<script src="/js/jquery.min.js"/>-->
+    <script src="/js/jquery.min.js"></script>
+    <script >
+        $(function () {
+            $.ajax({
+                url:"/web/show/list",
+                type:"POST",
+                async:true,
+                success:function (data) {
+                    data = data.users;
+                    for (i in data){
+                       var body = "";
+                       body += "<tr id=\"template\">" +
+                           "<td id=\"name\">"+ data[i].userAccount + "</td>" +
+                           "<td id=\"name\">"+ data[i].userLoginId + "</td>" +
+                           "<td id=\"name\">"+ data[i].userPassword + "</td>" +
+                           "</tr>";
+                       $("#testDiv").append(body);
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>用户列表</h2>
+<table border="2" cellpadding="10" id="testDiv">
+    <tr>
+        <td>姓名</td>
+        <td>id</td>
+        <td>密码</td>
+    </tr>
+</table>
+</body>
+</html>
