@@ -5,6 +5,7 @@
     <title>文件上传</title>
     <script src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/downAndUpLoad.js"></script>
+    <script type="text/javascript" src="/js/jquery-form.js"></script>
 </head>
 <body>
     <form id="formFile">
@@ -16,5 +17,12 @@
 
     <button id="download_one">下载渠道1</button>
     <button id="download_tow">下载渠道2</button>
+
+    <form id="uploadForm" enctype="multipart/form-data" method="post">
+        <input id="upfile" type="file" name="upfile">
+        <input type="button" value="导入" id="upLoadPayerCreditInfoExcel" name="btn">
+    </form>
+
+    <a href="/web/excel/export">导出</a>
 </body>
 </html>
