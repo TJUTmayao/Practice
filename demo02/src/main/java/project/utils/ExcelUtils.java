@@ -35,7 +35,7 @@ public class ExcelUtils {
     private final static String excel2003L =".xls";
     /* 2007+ 版本的excel */
     private final static String excel2007U =".xlsx";
-    /*************************************文件上传****************************/
+    /*************************************文件导入****************************/
     public static  List<List<Object>> getBankListByExcel(InputStream in, String fileName) throws Exception{
         List<List<Object>> list = null;
 
@@ -57,10 +57,11 @@ public class ExcelUtils {
             sheet = work.getSheetAt(i);
             if(sheet==null){continue;}
             /* 遍历当前页中的所有行 */
-            for (int j = sheet.getFirstRowNum(); j < sheet.getLastRowNum(); j++) {
+            for (int j = sheet.getFirstRowNum(); j <= sheet.getLastRowNum(); j++) {
                 row = sheet.getRow(j);
                 /* 行列相等就跳过？ */
-                if(row==null||row.getFirstCellNum()==j){continue;}
+                short firstCellNum = row.getFirstCellNum();
+                if(row == null || firstCellNum == j){continue;}
 
                 //遍历所有的列
                 List<Object> li = new ArrayList<Object>();
@@ -133,7 +134,7 @@ public class ExcelUtils {
         }
         return value;
     }
-    /****************************************上传结束***************************************/
+    /****************************************导入结束***************************************/
      /**
      * 多列头创建EXCEL
      *

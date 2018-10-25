@@ -28,7 +28,7 @@ import java.util.Map;
 public class ExcelService implements ExcelInterface {
 
     @Override
-    public void uploadPayerCreditInfoExcel(InputStream in, MultipartFile file, Long companyId, Long userId) throws Exception {
+    public List uploadPayerCreditInfoExcel(InputStream in, MultipartFile file, Long companyId, Long userId) throws Exception {
         List<List<Object>> listob = ExcelUtils.getBankListByExcel(in,file.getOriginalFilename());
         List<CreditInfoBean> creditInfoList=new ArrayList<CreditInfoBean>();
         for (int i = 0; i < listob.size(); i++) {
@@ -43,8 +43,13 @@ public class ExcelService implements ExcelInterface {
             creditInfoBean.setBuyerRemark(String.valueOf(ob.get(5)));
             creditInfoList.add(creditInfoBean);
         }
+        return creditInfoList;
     }
 
+    @Override
+    public List uploadPayerCreditInfoExcel(InputStream in, MultipartFile file) throws Exception {
+       return uploadPayerCreditInfoExcel(in ,file ,(long) 1 ,(long) 1);
+    }
     @Override
     public XSSFWorkbook exportPayerCreditInfoExcel(Long companyId) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, IntrospectionException, ParseException {
         /* 可以更换其他的实体类 */

@@ -5,19 +5,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import project.entity.ResultPojo;
+import project.service.impl.CreditInfoBean;
 import project.service.impl.ExcelService;
+import project.utils.JsonUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 说明：
@@ -60,11 +60,39 @@ public class ExcelController {
         }
     }
 
+    @RequestMapping("/import")
+    @ResponseBody
+    public ResultPojo importExcel(HttpServletRequest request ,HttpServletResponse response ,HttpSession session){
+        MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartHttpServletRequest.getFile("upExcel");
+        if (file.isEmpty()){
+            return getResult(500 , "文件为空" ,null);
+        }
+        try {
+            InputStream inputStream = file.getInputStream();
+            List list = excelService.uploadPayerCreditInfoExcel(inputStream, file);
+            show(list);
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return getResult(200 ,"文件导入成功" ,null);
+    }
     private ResultPojo getResult(int code ,String message ,Object data){
         ResultPojo resultPojo = new ResultPojo();
         resultPojo.setCode(code);
         resultPojo.setMessage(message);
         resultPojo.setData(data);
         return resultPojo;
+    }
+
+    private void show(List list){
+        List<CreditInfoBean> creditInfoBeans = list;
+        Iterator<CreditInfoBean> iterator = creditInfoBeans.iterator();
+        while(iterator.hasNext()){
+            System.out.println(JsonUtils.objectToJson(iterator.next()));
+        }
     }
 }

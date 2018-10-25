@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.beans.IntrospectionException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * 说明：
@@ -16,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public interface ExcelInterface {
 
-    void uploadPayerCreditInfoExcel(InputStream in, MultipartFile file, Long companyId, Long userId) throws Exception;
-
+    List uploadPayerCreditInfoExcel(InputStream in, MultipartFile file, Long companyId, Long userId) throws Exception;
+    List uploadPayerCreditInfoExcel(InputStream in, MultipartFile file) throws Exception;
     public XSSFWorkbook exportPayerCreditInfoExcel(Long companyId) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException, ClassNotFoundException, IntrospectionException, com.sun.tools.example.debug.expr.ParseException;
 }
