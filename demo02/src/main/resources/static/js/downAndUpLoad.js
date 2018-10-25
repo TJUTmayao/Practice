@@ -40,7 +40,7 @@ $(function () {
         })
     });
 
-//JS校验form表单信息
+    /* 校验form表单信息 */
     function checkData(){
         var fileDir = $("#upExcel").val();
         var suffix = fileDir.substr(fileDir.lastIndexOf("."));

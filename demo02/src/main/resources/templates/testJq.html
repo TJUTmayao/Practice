@@ -3,20 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="/js/jquery.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script>
         function f() {
             alert(window.location.protocol + "//" + window.location.host)
             var url = window.location.protocol + "//" + window.location.host;
             window.location.href = url + "/page/operation";
         }
+        /* 自定义序列化  序列化为数组 */
+        $(function () {
+            $("#button1").click(function () {
+                var form = document.getElementById("testSerializable");
+                var parts = [],
+                    elems = form.elements,
+                    i = 0,
+                    len = elems.length,
+                    filed = null;
+                for (; i < len; i++) {
+                    filed = elems[i];
+                    switch (filed.type) {
+                        case "select-one":
+                        case "select-multiple":
+                            if (filed.name.length) {
+                                var j = 0,
+                                    opt,
+                                    optLen = filed.options.length;
+                                for (; j < optLen; j++) {
+                                    opt = filed.options[j];
+                                    if (opt.selected) {
+                                        parts.push(encodeURIComponent(filed.name) + "=" + encodeURIComponent(opt.value));
+                                    }
+                                }
+                            }
+                            break;
+                        case undefined:
+                        case "submit":
+                        case "reset":
+                        case "file":
+                        case "button":
+                        case "password":
+                            break;
+                        case "radio":
+                        case "checkbox":
+                            if (!filed.checked) {
+                                break;
+                            }
+                        default:
+                            if (filed.name.length >= 0 && filed.value) {
+                                parts.push(encodeURIComponent(filed.name) + "=" + encodeURIComponent(filed.value));
+                            }
+                    }
+                }
+                var s = parts.join("&");
+                console.info(s);
+                $.ajax({
+                    url:"/web/testSerializable",
+                    data:s,
+                    type:"GET",
+                    success:function () {
+                        alert("成功")
+                    }
+                })
+            })
+            /* 自定义序列化 序列化为数组 */
+            /* $.fn.methodName()=function(){} 将方法扩展到属性上
+            *  $.fn.extend({ methods }) 为jQuery类添加方法 将methods变为静态方法 */
+            $.fn.serializeJson = function(){
+                var serializeObj = { };
+                var array = this.serializeArray();
+                var str = this.serialize();
+                /* this表示html对象，$(this)表示JQuery对象 故调用该函数时需要获取document对象*/
+                $(array).each(function () {
+                    if (serializeObj[this.name]){
+                        if ($.isArray(serializeObj[this.name])){
+                            serializeObj[this.name].push(this.value);
+                        } else {
+                            serializeObj[this.name] = [serializeObj[this.name],this.value]
+                        }
+                    }else {
+                        serializeObj[this.name] = this.value;
+                    };
+                });
+                return serializeObj;
+            };
+            $("#button2").click(function () {
+                var serializeJson = $("#testSerializable").serializeJson();
+                console.info(serializeJson)
+            })
+        })
     </script>
 </head>
 <body>
-<p class="test1"><a >dddd</a></p>
-<input class="test1" type="text" value="555" onclick="f()">
-<input class="test1" type="text" value="666" onclick="f()">
-<input class="test1" type="text" value="444" onclick="f()">
-<input class="test1" type="text" value="777" onclick="f()">
+    <p class="test1"><a >dddd</a></p>
+    <input class="test1" type="button" value="555" onclick="f()">
+    <form id="testSerializable">
+        <input type="text" id="name" name="name">
+        <input type="password" id="pass" name="pass">
+        <input type="date" id="time" name="time">
+        <input type="button" id="button1" value="自定义序列化(name=value)">
+        <input type="button" id="button2" value="自定义序列化（对象）">
+    </form>
 </body>
 </html>

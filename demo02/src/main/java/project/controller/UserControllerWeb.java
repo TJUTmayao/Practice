@@ -68,6 +68,7 @@ public class UserControllerWeb {
         return map;
     }
 
+    /** 多文件上传 */
     @RequestMapping(value = "/upload1" ,method = RequestMethod.POST)
     @ResponseBody
     public ResultPojo upload(HttpServletRequest request){
@@ -78,6 +79,7 @@ public class UserControllerWeb {
         return resultPojo;
     }
 
+    /** 单文件上传 */
     @RequestMapping(value = "/upload2" ,method = RequestMethod.POST)
     @ResponseBody
     public String singleFileUpload(@RequestParam("UpFile") MultipartFile file){
@@ -104,6 +106,7 @@ public class UserControllerWeb {
             }
     }
 
+    /** 文件下载，修改响应版 */
     @RequestMapping(value = "/download1/{fileName}")
     public String download(HttpServletResponse response , @PathVariable String fileName){
         String path = "D://TestFileUpAndDownload//";
@@ -133,6 +136,7 @@ public class UserControllerWeb {
         return null;
     }
 
+    /** 文件下载，自定义响应 */
     @RequestMapping("/download2/{fileName}")
     public ResponseEntity<byte[]> downloadTwo(HttpServletRequest request , @PathVariable String fileName){
         String path = "D://TestFileUpAndDownload//";
@@ -155,5 +159,10 @@ public class UserControllerWeb {
         return null;
     }
 
+    @RequestMapping("/testSerializable")
+    @ResponseBody
+    public void testSerializable(@RequestParam String name, @RequestParam String time){
+        System.out.println(name + "---" + time);
+    }
 
 }
