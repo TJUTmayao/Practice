@@ -58,8 +58,13 @@
                 console.info(s);
                 $.ajax({
                     url:"/web/testSerializable",
-                    data:s,
-                    type:"GET",
+                    dataType:"json",
+                    data:JSON.stringify({
+                        "name":"mayao",
+                        "time":"123456"
+                    }),
+                    type:"POST",
+                    contentType:"application/json;charset=utf-8",
                     success:function () {
                         alert("成功")
                     }

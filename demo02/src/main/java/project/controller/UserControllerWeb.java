@@ -1,5 +1,7 @@
 package project.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import org.apache.commons.io.FileUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -159,10 +161,12 @@ public class UserControllerWeb {
         return null;
     }
 
-    @RequestMapping("/testSerializable")
+    @RequestMapping(value = "/testSerializable",method = RequestMethod.POST)
     @ResponseBody
-    public void testSerializable(@RequestParam String name, @RequestParam String time){
-        System.out.println(name + "---" + time);
+    public void testSerializable(@RequestBody String json){
+        System.out.println(json);
     }
+
+
 
 }
