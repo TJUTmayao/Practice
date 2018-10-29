@@ -23,7 +23,7 @@ public class TestRandomAccessFile {
         RandomAccessFile raf = new RandomAccessFile(file ,"rw");
         /* 获取文件指针位置 */
         System.out.println(raf.getFilePointer());
-        /* 所有基本数据类型写 注意字符串和字符的写入结果不同  */
+        /* 所有基本数据类型写 注意字符串和字符的写入结果不同 write只写一个字节 */
         /* int，float，double，byte，char，long，short，String，boolean 以及char和byte的数组 */
         raf.writeBytes("mayao");
         raf.writeInt(15);

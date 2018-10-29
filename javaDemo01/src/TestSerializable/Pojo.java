@@ -1,13 +1,13 @@
 package TestSerializable;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
+import java.io.*;
+import java.util.ArrayList;
 
 /**
- * 说明：测试pojo，自定义序列化1.继承Serializable，在不想序列化的属性前加transient关键字。
+ * 说明：测试pojo，自定义序列化1.继承Serliaizable，在不想序列化的属性前加transient关键字（规避JVM默认的序列化）。
  *       2.实现Externalizable接口，在writeExternal方法中实现序列化，在readExternal方法中实现反序列化。
+ *       3.重写private void readObject(ObjectInputStream var1) throws IOException, ClassNotFoundException 和
+ *       private void writeObject(ObjectOutputStream var1) throws IOException 方法。
  *
  * @Auther: 11432_000
  * @Date: 2018/10/18 10:53
@@ -47,6 +47,7 @@ public class Pojo implements Externalizable {
 
     @Override
     public void writeExternal(ObjectOutput objectOutput) throws IOException {
+
         objectOutput.writeObject(this.name);
         objectOutput.writeObject(this.weight);
 //        objectOutput.writeObject(this.id);
@@ -58,4 +59,21 @@ public class Pojo implements Externalizable {
         this.weight = (double) objectInput.readObject();
 //        this.id = (int) objectInput.readObject();
     }
+
+    /* 和继承Externalizable 接口的区别： 有无defaultWriteObject 方法 */
+    private void writeObject(ObjectOutputStream var1) throws IOException{
+        /* 将没有加 transient 关键字的属性序列化 */
+        var1.defaultWriteObject();
+        /* 自定义序列化 */
+        var1.writeObject(this.id);
+    }
+
+
+    private void readObject(ObjectInputStream var1) throws IOException, ClassNotFoundException{
+        /* 将没有加 transient 关键字的属性反序列化 */
+        var1.defaultReadObject();
+        /* 自定义序列化属性的反序列化 */
+        this.id = (int) var1.readObject();
+    }
+
 }
