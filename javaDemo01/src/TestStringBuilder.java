@@ -20,5 +20,6 @@ public class TestStringBuilder {
         /* 将字符串倒置 */
         stringBuilder.reverse();
         System.out.println(stringBuilder);
+
     }
 }

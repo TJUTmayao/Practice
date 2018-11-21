@@ -5,7 +5,7 @@ import sun.rmi.runtime.NewThreadAction;
 import java.io.*;
 
 /**
- * 说明：InputStream / OutputStream， 序列化练习见TestSerializable
+ * 说明：InputStream / OutputStream， 序列化练习见TestSerializable ,浏览器输入输出用ServletIn/OutputStream。
  *
  * @Auther: 11432_000
  * @Date: 2018/10/29 09:36

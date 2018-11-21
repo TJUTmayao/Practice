@@ -1,7 +1,8 @@
 import java.util.*;
 
 /**
- * 说明：list和set，以及Collections和Arrays的工具方法，以及重写hashCode()和equals()方法，以及自定义类的排序的实现（Comparable）
+ * 说明：list和set，以及Collections和Arrays的工具方法，以及重写hashCode()和equals()方法，
+ * 以及自定义类的排序的实现（Comparable）
  *
  * @Auther: 11432_000
  * @Date: 2018/10/16 13:07
@@ -98,8 +99,8 @@ public class TestCollectionListAndSet {
         @Override
         /* 重写equals和hashCode */
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Stu)) return false;
+            if (this == o) {return true;}
+            if (!(o instanceof Stu)) {return false;}
             Stu stu = (Stu) o;
             return Objects.equals(name, stu.name) &&
                     Objects.equals(id, stu.id);
