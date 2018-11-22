@@ -1,7 +1,7 @@
 package TestDesignPattern.SingletonMode;
 
 /**
- * 说明：单例模式：饿汉模式
+ * 说明：饿汉模式
  *
  * @Auther: 11432_000
  * @Date: 2018/11/19 16:28

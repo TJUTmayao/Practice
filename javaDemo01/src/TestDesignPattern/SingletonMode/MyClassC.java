@@ -1,7 +1,7 @@
 package TestDesignPattern.SingletonMode;
 
 /**
- * 说明：单例模式-DCL（双检锁）
+ * 说明：DCL（双检锁）
  *
  * @Auther: 11432_000
  * @Date: 2018/11/20 10:41

@@ -16,8 +16,6 @@ public class TestClassAPI {
     public static void main(String[] args){
 
         String a = "555";
-//        showClassMessage(a);
-//        showProperty(a);
         showConstructor(a);
     }
 

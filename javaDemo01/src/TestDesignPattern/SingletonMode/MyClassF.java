@@ -1,7 +1,7 @@
 package TestDesignPattern.SingletonMode;
 
 /**
- * 说明：
+ * 说明：枚举
  *
  * @Auther: 11432_000
  * @Date: 2018/11/20 15:21

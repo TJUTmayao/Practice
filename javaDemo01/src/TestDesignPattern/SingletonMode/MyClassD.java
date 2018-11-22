@@ -1,7 +1,7 @@
 package TestDesignPattern.SingletonMode;
 
 /**
- * 说明：
+ * 说明：静态内部类/登记式
  *
  * @Auther: 11432_000
  * @Date: 2018/11/20 14:55
