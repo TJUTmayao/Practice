@@ -22,7 +22,7 @@ public class Car implements ProxyInterface{
     }
 
     @Override
-    public void show() {
+    public void show(String msg) {
 
     }
 

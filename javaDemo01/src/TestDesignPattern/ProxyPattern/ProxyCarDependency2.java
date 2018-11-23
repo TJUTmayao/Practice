@@ -23,7 +23,7 @@ public class ProxyCarDependency2 implements ProxyInterface{
     }
 
     @Override
-    public void show() {
+    public void show(String msg) {
         Class<? extends ProxyCarDependency2> aClass = this.getClass();
 
     }

@@ -1,6 +1,7 @@
 package TestDesignPattern.ProxyPattern;
 
 import TestDesignPattern.ImitateJdkProxy.InvocationHandler;
+import TestDesignPattern.ImitateJdkProxy.MyInvocation;
 import TestDesignPattern.ImitateJdkProxy.Proxy;
 import TestDesignPattern.ProxyPattern.DynamicAdapter.CglibProxy;
 import TestDesignPattern.ProxyPattern.DynamicAdapter.InvocationRealization;
@@ -29,15 +30,19 @@ public class TestMain {
                 aClass.getInterfaces(), realization);
         o.move();*/
        /* CGLIB动态代理 */
-     /*   CglibProxy cglibProxy = new CglibProxy();
+        /*CglibProxy cglibProxy = new CglibProxy();
         Train t =(Train) cglibProxy.getProxy(Train.class);
         t.move();*/
 
+        /* 模拟动态代理 */
+        Train train = new Train();
+        Class<? extends Train> aClass = train.getClass();
         try {
-            car.getClass().getMethod("move");
-        } catch (NoSuchMethodException e) {
+            ProxyInterface proxy =(ProxyInterface) Proxy.newProxyInstance(aClass.getInterfaces()[0],
+                    new MyInvocation(train));
+            proxy.move();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        InvocationHandler a;
     }
 }

@@ -9,5 +9,5 @@ package TestDesignPattern.ProxyPattern;
  */
 public interface ProxyInterface {
     public void move();
-    public void show();
+    public void show(String msg);
 }

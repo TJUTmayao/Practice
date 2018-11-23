@@ -12,7 +12,7 @@ public class ProxyCarDependency implements ProxyInterface{
     private ProxyInterface car;
 
     @Override
-    public void show() {
+    public void show(String msg) {
 
     }
 
