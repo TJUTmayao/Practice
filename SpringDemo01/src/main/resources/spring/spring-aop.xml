@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config >
+
+        <aop:aspect id="myAspect" ref="aopTestNotice">
+            <aop:around method="aroundInit" pointcut="execution(* TestAopAspect.BusinessService.showOther(String ,int))"/>
+            <!--<aop:declare-parents types-matching="TestAopAspect.BusinessService(+)"-->
+                                 <!--implement-interface="TestAopAspect.ParentInterface"-->
+                                 <!--default-impl="TestAopAspect.ParentInImpl"/>-->
+        </aop:aspect>
+    </aop:config>
+    <bean class="TestAopAspect.AopTestNotice" id="aopTestNotice"/>
+    <bean class="TestAopAspect.BusinessService" id="businessService"/>
+</beans>

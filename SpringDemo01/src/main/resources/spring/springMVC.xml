@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="byName">
+
+   <!-- <bean id="testInitAndDestroy" class="TestBean.TestInitAndDestroy">
+       &lt;!&ndash; <property name="info" ref="info"/>&ndash;&gt;
+        <constructor-arg index="0" ref="info"/>
+        <property name="name" value="mayao"/>
+    </bean>-->
+    <bean class="TestAware.TestAware" id="testAware" init-method="init"></bean>
+    <bean class="TestBean.TestAut" id="testAut" />
+    <bean class="TestResources.ResourcesMaster" id="resourcesMaster"/>
+
+    <bean id="info" class="TestPojo.Info" ></bean>
+    <bean class="TestPojo.Show" id="show">
+        <property name="showValue" value="123"/>
+    </bean>
+</beans>

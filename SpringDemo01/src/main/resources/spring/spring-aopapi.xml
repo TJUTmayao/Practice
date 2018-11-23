@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean class="TestAopApi.TestPointcut" id="testPointcut"/>-->
+    <!--<bean class="org.springframework.aop.support.NameMatchMethodPointcut" id="pointcutBean">-->
+        <!--<property name="mappedNames">-->
+            <!--<list>-->
+                <!--<value>sa*</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <bean class="TestAopApi.TestBefore" id="beforeAdvice"/>
+    <bean class="TestAopApi.TestAfterReturning" id="afterReturningAdvice"/>
+    <bean class="TestAopApi.TestThrowing" id="throwsAdvice"/>
+    <bean class="TestAopApi.TestIntroductionAdvice" id="introductionAdvice"/>
+    <bean class="TestAopApi.TestAroundAdvice" id="aroundAdvice"/>
+
+    <!--<bean class="org.springframework.aop.support.DefaultPointcutAdvisor" id="pointcutAdvisor">-->
+        <!--<property name="advice" ref="beforeAdvice"/>-->
+        <!--<property name="pointcut" ref="pointcutBean"/>-->
+    <!--</bean>-->
+
+
+    <!--<bean class="org.springframework.aop.framework.ProxyFactoryBean" id="proxyFactoryBean">-->
+        <!--<property name="target">-->
+            <!--<bean class="TestAopApi.TestSave" id="testSave"/>-->
+        <!--</property>-->
+        <!--<property name="interceptorNames">-->
+            <!--<list>-->
+                <!--<value>pointcutAdvisor</value>-->
+                <!--<value>aroundAdvice</value>-->
+                <!--<value>afterReturningAdvice</value>-->
+                <!--<value>beforeAdvice</value>-->
+                <!--<value>throwsAdvice</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <bean class="org.springframework.aop.framework.ProxyFactoryBean" id="parentBean"
+           abstract="true" lazy-init="true"/>
+    <bean id="testImpl" parent="parentBean">
+        <property name="target">
+            <bean class="TestAopApi.TestSave"/>
+        </property>
+        <property name="proxyInterfaces">
+            <value>TestAopApi.SaveInterface</value>
+        </property>
+        <property name="interceptorNames">
+            <value>beforeAdvice</value>
+        </property>
+    </bean>
+
+</beans>
