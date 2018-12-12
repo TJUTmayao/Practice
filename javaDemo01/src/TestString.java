@@ -12,7 +12,7 @@ public class TestString {
         int i = s.codePointAt(2);
         /* 返回索引之前的一个字符的编码值 */
         int i3 = s.codePointBefore(2);
-        /* 比较字符串的大小 */
+        /* 比较字符串的长度，返回长度差或首不同字符的差 */
         int mayaonc = s.compareTo("mayaona");
         /* 返回两个字符串的差 */
         int i2 = s.compareToIgnoreCase("mayaona");

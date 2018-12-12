@@ -64,5 +64,7 @@ public class TestFile {
         System.out.println("17.");file.deleteOnExit();
         /* 删除文件 */
         System.out.println("18." + file.delete());
+        /* 获取最后更改时间(可以设置) */
+        System.out.println("19." + file.lastModified());
     }
 }
