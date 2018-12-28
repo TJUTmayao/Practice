@@ -23,10 +23,10 @@ public class Test {
 //        b = file.renameTo(new File(file.getParentFile().getPath() + "/0.jpg"));
 //        System.out.println(b);
 
-        File file = new File("C:\\Users\\11432_000.000.000\\Desktop\\001\\yy98");
+        File file = new File("C:\\Users\\11432_000.000.000\\Desktop\\yy1");
         File[] files = file.listFiles();
         Rename rename = new Rename();
-        files = rename.sortFilesByInsert(files ,1);
+        files = rename.sortFilesByInsert(files ,2);
         show(files);
         System.out.println("--------------------------------------------------------");
         files = rename.sortFilesByBubbling(files ,1);

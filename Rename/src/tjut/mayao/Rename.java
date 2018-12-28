@@ -23,14 +23,6 @@ public class Rename {
     private int renameDirectoryNumber = 0;
     private String renameFileName = null;
 
-    public  void rename(File file ,int algorithm ,int choiceMode)throws IOException{
-        rename(file ,"", algorithm ,choiceMode);
-    }
-
-    public  void rename(File file ,String fileNamePrefix , int algorithm,int choiceMode)throws IOException{
-        rename(file ,fileNamePrefix ,"",algorithm ,choiceMode);
-    }
-
     public  void rename(File file ,String fileNamePrefix ,String fileSuffix ,int algorithm ,int choiceMode)throws IOException{
         /**
          *
@@ -232,7 +224,7 @@ public class Rename {
                     return compareToByLastModified(file1 ,file2);
                 case BY_CREATE_TIME:
                     return compareToByCreateTime(file1 ,file2);
-                default:throw new RuntimeException();
+                default:throw new RuntimeException("不存在该比较方式");
             }
         }
     }
