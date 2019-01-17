@@ -6,23 +6,25 @@ import java.io.*;
 import java.net.Socket;
 
 /**
- * 说明：聊天室客户端测试
+ * 说明：聊天室客户端
  *
  * @Auther: 11432_000
- * @Date: 2019/1/15 16:36
+ * @Date: 2019/1/15 16:17
  * @Description:
  */
-public class ClientTest {
-
-    public static void main(String[] args) throws IOException {
+public class Client {
+    public static void main(String[] args)throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Socket socket = new Socket("localhost",8888);
+        System.out.println("请输入用户名");
+        String s = reader.readLine();
         System.out.println("客户端启动");
-        new Thread(new SayThread(socket ,"麻尧")).start();
+        new Thread(new SayThread(socket ,s)).start();
         new Thread(new LookThread(socket)).start();
     }
 }
 /** 输入线程 */
-/*class SayThread implements Runnable{
+class SayThread implements Runnable{
 
     private DataOutputStream dataOutputStream;
     private Socket socket;
@@ -47,6 +49,9 @@ public class ClientTest {
         while (isRun){
             msg = readLine();
             sayString(msg);
+            if(msg.equals("#bye")){
+                isRun = false;
+            }
         }
         release();
     }
@@ -73,11 +78,11 @@ public class ClientTest {
     }
 
     private void release(){
-        IOUtils.coles(dataOutputStream,reader);
+        IOUtils.coles(dataOutputStream,reader,socket);
         this.isRun = false;
     }
 }
-*//** 输出线程 *//*
+/** 输出线程 */
 class LookThread implements Runnable{
 
     private DataInputStream dataInputStream;
@@ -100,6 +105,9 @@ class LookThread implements Runnable{
                 System.out.println(msg);
             } catch (IOException e) {
                 isRun = false;
+                if (!socket.isClosed()){
+                    System.out.println("读取消息失败");
+                }
             }
         }
         release();
@@ -109,4 +117,4 @@ class LookThread implements Runnable{
         IOUtils.coles(dataInputStream);
         this.isRun = false;
     }
-}*/
+}
