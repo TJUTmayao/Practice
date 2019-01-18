@@ -1,9 +1,9 @@
-package InsertSort;
+package Sort.InsertSort;
 
 import MyUtils.ArrayUtils;
 
 /**
- * 说明：插入排序
+ * 说明：插入排序 O(n²) 稳定 原地
  *
  * @Auther: 11432_000
  * @Date: 2019/1/17 11:23

@@ -1,9 +1,9 @@
-package MergeSort;
+package Sort.MergeSort;
 
 import MyUtils.ArrayUtils;
 
 /**
- * 说明：归并排序
+ * 说明：归并排序 O(nlogn) 稳定 非原地 空间复杂度O(n)
  *
  * @Auther: 11432_000
  * @Date: 2019/1/17 09:00
@@ -34,7 +34,7 @@ public class Test {
         //合并
         merge(randomInts, low, intermediateValue, intermediateValue + 1, top);
     }
-    /** 排序数组 */
+    /** 排序数组（插入排序） */
     public static void mergeSortB(int[] randomInts ,int low ,int top){
         int k;
         for (int i = low + 1 ,j = low; i <= top; i++,j++) {
@@ -54,14 +54,12 @@ public class Test {
         int[] newArray = new int[size];
         int k = 0;
         int i,j;
-        for (i = low1,j = low2; i <= top1 && j <= top2;) {
+        for (i = low1,j = low2; i <= top1 && j <= top2; k++) {
             if (array[i] <= array[j]){
                 newArray[k] = array[i];
-                k ++;
                 i ++;
             }else {
                 newArray[k] = array[j];
-                k ++;
                 j ++;
             }
         }
@@ -71,6 +69,7 @@ public class Test {
         else if (j <= top2){
             System.arraycopy(array ,j ,newArray ,k ,top2 - j + 1);
         }
+        //copy到原数组
         System.arraycopy(newArray ,0 ,array ,low1 ,newArray.length);
     }
 

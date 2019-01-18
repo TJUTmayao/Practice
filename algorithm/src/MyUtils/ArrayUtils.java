@@ -92,4 +92,72 @@ public class ArrayUtils {
         return true;
     }
 
+    public static int getMax(int... array){
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (max < array[i]){
+                max = array[i];
+            }
+        }
+        return max;
+    }
+
+    public static int getMin(int... array){
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]){
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    public static int[][] getBucketsByValue(int[] array,int number){
+        int min = getMin(array);
+        int max = getMax(array);
+        int[] bucketRange = getBucketRange(array, min, max, number);
+        System.out.println("范围：" + intArrayToString(bucketRange));
+        int[] bucketElementNumber = getBucketElementNumber(array, bucketRange);
+        int[][] bucketArray = new int[number][];
+        for (int i = 0; i < number; i++) {
+            bucketArray[i] = new int[bucketElementNumber[i]];
+        }
+        int[] count = new int[number];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = count.length - 1; j >= 0; j--) {
+                if (array[i] >= bucketRange[j]){
+                    bucketArray[j][count[j]++] = array[i];
+                    break;
+                }
+            }
+        }
+        return bucketArray;
+    }
+
+    public static int[] getBucketRange(int[] array ,int min ,int max ,int number){
+        int range = (min + max)/number;
+        int[] ranges = new int[number + 1];
+        for (int i = 0;; i++) {
+            if (i == number){
+                ranges[i] = max;
+                break;
+            }
+            ranges[i] = min + range * i;
+        }
+        return ranges;
+    }
+
+    public static int[] getBucketElementNumber(int[] array ,int[] ranges){
+        int[] rangeNumber = new int[ranges.length - 1];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = rangeNumber.length - 1; j >= 0; j--) {
+                if (array[i] >= ranges[j]){
+                    rangeNumber[j] ++;
+                    break;
+                }
+            }
+        }
+        return rangeNumber;
+    }
+
 }
