@@ -9,7 +9,7 @@ import MyUtils.ArrayUtils;
  * @Date: 2019/1/18 08:29
  * @Description:
  */
-public class Test {
+public class QuickSort {
 
     public static void main(String[] args) {
         int[] array = {76,35,21,31,79,98,20,12,80,34,1,74,72,17,11,83,51,31,64,97,80,20,36,32,59,89,4,61,57,53,32,76,87,87,22,56,93,76,4,97,55,58,1,61,13,70,13,20,84,72};
@@ -29,7 +29,7 @@ public class Test {
         int i,j,transitionValue;
         int pivot = array[top];
         for (i = low ,j = low; i < top; i++) {
-            if (array[i] < pivot){
+            if (array[i] <= pivot){
                 transitionValue = array[i];
                 array[i] = array[j];
                 array[j] = transitionValue;

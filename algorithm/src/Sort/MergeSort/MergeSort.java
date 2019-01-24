@@ -9,7 +9,7 @@ import MyUtils.ArrayUtils;
  * @Date: 2019/1/17 09:00
  * @Description:
  */
-public class Test {
+public class MergeSort {
 
     public static void main(String[] args) {
         int[] randomInts = {12,43,77,32,78,23,24,87,11,86,44,5,21,38,27,3};
@@ -34,7 +34,7 @@ public class Test {
         //合并
         merge(randomInts, low, intermediateValue, intermediateValue + 1, top);
     }
-    /** 排序数组（插入排序） */
+    /** 排序数组（插入排序 稳定） */
     public static void mergeSortB(int[] randomInts ,int low ,int top){
         int k;
         for (int i = low + 1 ,j = low; i <= top; i++,j++) {

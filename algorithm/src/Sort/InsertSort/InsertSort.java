@@ -9,7 +9,7 @@ import MyUtils.ArrayUtils;
  * @Date: 2019/1/17 11:23
  * @Description:
  */
-public class Test {
+public class InsertSort {
 
     public static void main(String[] args) {
         int[] array = {49,10,44,95,53,52,45,56,50,39,71,11,16,21,88,99,22,48,1,80};

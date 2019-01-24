@@ -1,9 +1,12 @@
 package MyUtils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 /**
- * 说明：
+ * 说明：数组有关的工具类
  *
  * @Auther: 11432_000
  * @Date: 2019/1/17 09:01
@@ -44,7 +47,9 @@ public class ArrayUtils {
         for (int i : array){
             stringBuilder.append(i + ",");
         }
-        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        if (stringBuilder.lastIndexOf(",") == stringBuilder.length() - 1){
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        }
         stringBuilder.append("}");
         return stringBuilder.toString();
     }
@@ -112,6 +117,7 @@ public class ArrayUtils {
         return min;
     }
 
+    /** 根据值划分数组 */
     public static int[][] getBucketsByValue(int[] array,int number){
         int min = getMin(array);
         int max = getMax(array);
@@ -134,6 +140,7 @@ public class ArrayUtils {
         return bucketArray;
     }
 
+    /** 获取每个桶的值的范围 */
     public static int[] getBucketRange(int[] array ,int min ,int max ,int number){
         int range = (min + max)/number;
         int[] ranges = new int[number + 1];
@@ -147,6 +154,7 @@ public class ArrayUtils {
         return ranges;
     }
 
+    /** 获取每个桶中元素的个数 */
     public static int[] getBucketElementNumber(int[] array ,int[] ranges){
         int[] rangeNumber = new int[ranges.length - 1];
         for (int i = 0; i < array.length; i++) {
@@ -158,6 +166,122 @@ public class ArrayUtils {
             }
         }
         return rangeNumber;
+    }
+
+    /** 合并数组 */
+    public static int[] mergedArray(int[]... arrays){
+        int newSize = 0;
+        int index = 0;
+        for (int[] array : arrays){
+            newSize += array.length;
+        }
+        int[] newArray = new int[newSize];
+        for (int[] array : arrays) {
+            System.arraycopy(array ,0 ,newArray ,index ,array.length);
+            index += array.length;
+        }
+        return newArray;
+    }
+    /** 统计每个值之前的值的个数 */
+    public static int[] getCountingSortCount(int[] array){
+        int max = ArrayUtils.getMax(array);
+        int min = ArrayUtils.getMin(array);
+        int[] bucketRange = ArrayUtils.getBucketRange(array, min, max, (max - min + 1));
+        int[] bucketElementNumber = ArrayUtils.getBucketElementNumber(array, bucketRange);
+        for (int i = 1; i < bucketElementNumber.length; i++) {
+            bucketElementNumber[i] += bucketElementNumber[i - 1];
+        }
+        return bucketElementNumber;
+    }
+
+    /** 计数排序的计数 */
+    /*public static int[] getCountingSortCount(int[] array){
+        int max = ArrayUtils.getMax(array);
+        int min = ArrayUtils.getMin(array);
+        int[] bucketRange = ArrayUtils.getBucketRange(array, min, max, (max - min + 1));
+        int[] bucketElementNumber = ArrayUtils.getBucketElementNumber(array, bucketRange);
+        for (int i = 1; i < bucketElementNumber.length; i++) {
+            bucketElementNumber[i] += bucketElementNumber[i - 1];
+        }
+        return bucketElementNumber;
+    }*/
+
+
+    /** 将int数组转换为等长的String数组， */
+    public static String[] intArrayTransformEquilongStringArray(int... array){
+        int max = getMax(array);
+        int size = String.valueOf(max).length();
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] newArray = new String[array.length];
+        for (int i = 0; i < array.length; i++) {
+            stringBuilder.append(array[i]);
+            if (stringBuilder.length() < size){
+                for (int j = stringBuilder.length(); j < size; j++) {
+                    stringBuilder.insert(0,"0");
+                }
+            }
+            newArray[i] = stringBuilder.toString();
+            stringBuilder.delete(0 ,size);
+        }
+        return newArray;
+    }
+
+    /** 将int数组转换为等长的String数组， */
+    public static int[] stringArrayTransformIntArray(String... array){
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = Integer.valueOf(array[i]);
+        }
+        return newArray;
+    }
+
+    public static boolean equals(int[] object1 ,int[] object2){
+        boolean flag;
+        if (object1.length != object2.length){ return false;}
+        if (object1.getClass() != object2.getClass()){return false;}
+        for (int i : object1){
+            flag = false;
+            for (int j : object2){
+                if (i == j){
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag){return false;}
+        }
+        return true;
+    }
+
+    /** 三数取中 */
+    public int getPivotIndex(int[] array ,int low ,int top){
+        int[] ints = new int[3];
+        ints[0] = array[low];
+        ints[1] = array[(low + top) / 2];
+        ints[2] = array[top];
+        int max = getMax(ints);
+        int min = getMin(ints);
+        if (min == max){
+            return low;
+        }
+        for (int i = 0; i < 3; i++) {
+            if (ints[i] > min && ints[i] < max){
+                switch (i){
+                    case 0:
+                        return low;
+                    case 1:
+                        return (low + top) / 2;
+                    default:
+                        return top;
+                }
+            }
+        }
+        return top;
+    }
+
+    /** 随机 */
+    public int getRandomPivotIndex(int[] array ,int low ,int top){
+        Random random = new Random();
+        return random.nextInt(top - low) + low;
     }
 
 }
