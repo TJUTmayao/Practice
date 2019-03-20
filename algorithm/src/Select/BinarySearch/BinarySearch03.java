@@ -10,7 +10,7 @@ package Select.BinarySearch;
 public class BinarySearch03 {
     public static void main(String[] args) {
         int[] array = {0,0,0,2,2,4,4,5,6,6,6,7,7,8,9};
-        int i = binarySearch(array,array.length , 4);
+        int i = binarySearch(array, array.length ,4);
         System.out.println(i);
     }
 

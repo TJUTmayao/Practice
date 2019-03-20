@@ -169,6 +169,7 @@ public class MyHashTable<T> {
         this.oldTable = this.newTable;
         int newLength =(int) (this.length * 2);
         this.newTable = new MyHashNode[newLength];
+        //初始化表头
         for (int i = 0; i < newLength; i++) {
             this.newTable[i] = new MyHashNode<T>();
         }
